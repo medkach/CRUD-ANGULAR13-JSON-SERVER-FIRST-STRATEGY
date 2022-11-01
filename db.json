@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "computer",
+      "price": 1500,
+      "quantity": 80,
+      "available": true,
+      "selected": false
+    },
+    {
+      "id": 2,
+      "name": "smartphone",
+      "price": 3500,
+      "quantity": 90,
+      "available": false,
+      "selected": true
+    },
+    {
+      "id": 3,
+      "name": "printer",
+      "price": 500,
+      "quantity": 10,
+      "available": true,
+      "selected": true
+    },
+    {
+      "id": 4,
+      "name": "television",
+      "price": 5500,
+      "quantity": 80,
+      "available": true,
+      "selected": false
+    },
+    {
+      "id": 5,
+      "name": "lave-linge",
+      "price": "1465",
+      "quantity": "15",
+      "available": true,
+      "selected": true
+    },
+    {
+      "id": 6,
+      "name": "clim",
+      "price": "1500",
+      "quantity": "1",
+      "available": true,
+      "selected": false
+    }
+  ]
+}
