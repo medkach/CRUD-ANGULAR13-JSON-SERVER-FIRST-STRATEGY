@@ -9,13 +9,13 @@ import { DataStateEnum, AppDataState, ActionEvent, ProductActionsTypes} from '..
 })
 export class ProductsListComponent implements OnInit {
    @Input() productsInput$ : Observable<AppDataState<Product[]>> | null=null;
-   @Output() productEventEmitter:EventEmitter<ActionEvent>=new EventEmitter();
+  // @Output() productEventEmitter:EventEmitter<ActionEvent>=new EventEmitter();
   readonly DataStateEnum=DataStateEnum;
   constructor() { }
 
   ngOnInit(): void {
   }
-  onSelect(p:Product){
+ /* onSelect(p:Product){
   this.productEventEmitter.emit({type:ProductActionsTypes.SELECT_PRODUCT,payload:p});
   }
   onDeleteProduct(p:Product){
@@ -23,14 +23,6 @@ export class ProductsListComponent implements OnInit {
   }
   onEdit(p:Product){
   this.productEventEmitter.emit({type:ProductActionsTypes.EDIT_PRODUCT,payload:p});
-  }
-  onActionEvent($event:ActionEvent){
-  /*switch ($event.type)
-  {
-      case ProductActionsTypes.SELECT_PRODUCT : this.onSelect($event.payload);break;
-      case ProductActionsTypes.DELETE_PRODUCT : this.onDeleteProduct($event.payload);break;
-      case ProductActionsTypes.EDIT_PRODUCT : this.onEdit($event.payload);break;
   }*/
-  this.productEventEmitter.emit($event);
-  }
+
 }

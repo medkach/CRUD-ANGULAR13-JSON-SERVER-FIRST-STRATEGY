@@ -7,6 +7,8 @@ NEW_PRODUCT="[Product]  New Product",
 SELECT_PRODUCT="[Product]  SELECT Product",
 DELETE_PRODUCT="[Product]  DELETE Product",
 EDIT_PRODUCT="[Product]  EDIT Product",
+PRODUCT_ADDED="[Product]  Product Added",
+PRODUCT_UPDATED="[Product] Product Updated"
 }
 export interface ActionEvent{
 type?:ProductActionsTypes;

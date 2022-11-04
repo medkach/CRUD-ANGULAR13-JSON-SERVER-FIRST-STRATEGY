@@ -8,11 +8,9 @@
       <table class="table">
         <tr><th>ID</th><th>Name</th><th>Price</th><th>Quantity</th><th>Selected</th><th>Available</th></tr>
         <app-product-item [product]="p"
-        (eventEmitter)="onActionEvent($event)"
         style="display:contents"
         *ngFor="let p of result.data">
         </app-product-item>
-
       </table>
     </ng-container>
   </ng-container>

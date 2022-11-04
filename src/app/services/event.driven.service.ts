@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'njrx';
+import {Subject} from 'rxjs';
 import {ActionEvent} from '../state/product.state';
 
 @Injectable({providedIn:"root"})
-export class EventDriverService{
+export class EventDrivenService{
 
 sourceEventSubject:Subject<ActionEvent>= new Subject<ActionEvent>();
 sourceEventSubjectObservable=this.sourceEventSubject.asObservable();

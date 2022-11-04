@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from 'src/app/services/products.service';
+import { ProductsService} from 'src/app/services/products.service';
+    import { EventDrivenService } from 'src/app/services/event.driven.service';
 import { Product } from 'src/app/model/product.model';
 import { Observable, of } from 'rxjs';
 import {catchError, map, startWith } from 'rxjs/operators';
@@ -12,12 +13,16 @@ import { Router} from '@angular/router';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  //products?:Product[];//products:Product[] | null=null;
   products$ : Observable<AppDataState<Product[]>> | null=null;
   readonly DataStateEnum=DataStateEnum;
-  constructor(private productService:ProductsService,private router:Router) { }
+  constructor(private productService:ProductsService,
+  private router:Router,
+  private eventDrivenService:EventDrivenService) { }
 
   ngOnInit(): void {
+  this.eventDrivenService.sourceEventSubjectObservable.subscribe((actionEvent:ActionEvent) => {
+  this.onActionEvent(actionEvent);
+    });
   }
 
     onGetAllProducts(){

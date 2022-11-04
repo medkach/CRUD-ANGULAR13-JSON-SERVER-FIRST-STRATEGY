@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ProductActionsTypes,ActionEvent } from '../../../state/product.state';
-
+import { EventDrivenService } from 'src/app/services/event.driven.service';
 
 
 
@@ -13,28 +13,32 @@ import { ProductActionsTypes,ActionEvent } from '../../../state/product.state';
   styleUrls: ['./products-nav-bar.component.css']
 })
 export class ProductsNavBarComponent implements OnInit {
-  @Output()
-  productEventEmitter:EventEmitter<ActionEvent>=new EventEmitter();
-  constructor() { }
+ // @Output() productEventEmitter:EventEmitter<ActionEvent>=new EventEmitter();
+  constructor(private eventDrivenService:EventDrivenService) { }
 
   ngOnInit(): void {
   }
    onGetAllProducts(){
-    this.productEventEmitter.emit({type:ProductActionsTypes.GET_ALL_PRODUCTS});
+    //this.productEventEmitter.emit({type:ProductActionsTypes.GET_ALL_PRODUCTS});
+    this.eventDrivenService.publishEvent({type:ProductActionsTypes.GET_ALL_PRODUCTS});
     }
 
      onGetSelectedProducts(){
-     this.productEventEmitter.emit({type:ProductActionsTypes.GET_SELECTED_PRODUCTS});
+     //this.productEventEmitter.emit({type:ProductActionsTypes.GET_SELECTED_PRODUCTS});
+     this.eventDrivenService.publishEvent({type:ProductActionsTypes.GET_SELECTED_PRODUCTS});
      }
 
      onGetAvailableProducts(){
-     this.productEventEmitter.emit({type:ProductActionsTypes.GET_AVAILABLE_PRODUCTS});
+     //this.productEventEmitter.emit({type:ProductActionsTypes.GET_AVAILABLE_PRODUCTS});
+     this.eventDrivenService.publishEvent({type:ProductActionsTypes.GET_AVAILABLE_PRODUCTS});
      }
      onSearch(dataForm:any){
-     this.productEventEmitter.emit({type:ProductActionsTypes.GET_SEARCH_PRODUCTS,payload:dataForm});
+     //this.productEventEmitter.emit({type:ProductActionsTypes.GET_SEARCH_PRODUCTS,payload:dataForm});
+     this.eventDrivenService.publishEvent({type:ProductActionsTypes.GET_SEARCH_PRODUCTS,payload:dataForm});
      }
      onNewProduct(){
-     this.productEventEmitter.emit({type:ProductActionsTypes.NEW_PRODUCT});
+     //this.productEventEmitter.emit({type:ProductActionsTypes.NEW_PRODUCT});
+     this.eventDrivenService.publishEvent({type:ProductActionsTypes.NEW_PRODUCT});
         }
 
 }
